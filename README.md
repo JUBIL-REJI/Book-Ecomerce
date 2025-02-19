@@ -68,3 +68,45 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+<div>
+      <Navbar/>
+      <section className="cards-wrapper">
+        {book.map((item, index) => {
+
+          return(
+           <div className="card-grid-space">
+            <div className="card">
+              <div>
+                <p>{item.volumeInfo.title}</p>
+                <div className="date">
+                  <img
+                    src={
+                      item.volumeInfo.imageLinks &&
+                      item.volumeInfo.imageLinks.smallThumbnail
+                    }
+                    alt=""
+                    className="img-ed"
+                  />
+                </div>
+                <div className="tags">
+                  <div
+                    className="tag"
+                    onClick={() => naviGate(`/details/${item.id}`)}
+                  >
+                    Details
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          )
+        }
+      
+        )}
+      </section>
+    </div>

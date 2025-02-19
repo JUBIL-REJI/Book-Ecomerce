@@ -2,12 +2,7 @@
 
 
 /** gobal layout */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+
 
 :root{
     --primary-color: #5344db;
@@ -130,12 +125,17 @@
 }
 /** Product price **/
 .product-price{
+ 
     display: flex;
-    position: relative;
-    margin: 10px 0;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
+.stock-edit{
+    font-size: 20px;
+    color: red;
+}
 .product-price .offer-price{
     font-size: 48px;
     font-weight: 700;
@@ -143,8 +143,7 @@
 .product-price .sale-price{
     font-size: 22px;
     font-weight: 500;
-    text-decoration: line-through;
-    color: var(--grey);
+    color: wheat;
     margin-left: 12px;
 }
 
@@ -323,6 +322,7 @@
     .container{
         padding: 20px;
         height: auto;
+        flex-direction: column;
     }
     .row{
         display: block;
@@ -369,6 +369,12 @@
         flex-direction: column;
         gap: 10px;
     }
+    .product-price{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /** Responsive Tablet **/
@@ -376,7 +382,81 @@
    .container{
     display: block;
     height: auto;
+    width: auto;
     padding: 20px;
    }
     
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    position: absolute;
+    left:50%;
+    top: 50%;
+    width: 16px;
+    aspect-ratio: 1;
+    background: #3FB8AF;
+    box-shadow: 30px 0 #FF3D7F;
+    animation:
+      l4-1  1s infinite alternate,
+      l4-2 .5s infinite alternate;
+     
+  }
+  @keyframes l4-1 {
+     0%,40%   {transform: rotate(0)}
+     80%,100% {transform: rotate(.5turn)}
+  }
+  @keyframes l4-2 {
+     80%,100% {box-shadow: 16px 0 #FF3D7F}
+  }
+  @media screen and (max-width:920px) {
+    .container{
+        padding: 20px;
+        height: auto;
+    }
+    .row{
+        display: block;
+    }
+
+    .col-6{
+        width: 100%;
+        display: block;
+    }
+    .single-product{
+        width: 100%;
+        position: relative;
+    }
+
+    .product-image .product-image-main{
+        width: 100%;
+        height: 280px;
+    }
+    .product-image-slider{
+        gap: 5px;
+    }
+
+    .breadcrumb{
+        display: none;
+    }
+
+    .product-title h2{
+        font-size: 24px;
+        line-height: 1.6rem;
+    }
+    .product-size{
+        display: block;
+    }
+    .product-size .size-layout{
+        display: block;
+        margin: 10px 0;
+
+    }
+    .product-size .size-layout .size{
+        padding: 6px 10px;
+    }
+    .product-btn-group{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 }

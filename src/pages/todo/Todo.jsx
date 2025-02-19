@@ -10,8 +10,8 @@ const Todo = () => {
     setinputValue('')
   }
   const handleDeleteTodo = (index) => {
-    const newTodos = addValue.filter((_id, i) => i !== index);
-    setAddvalue(newTodos);
+  addValue.filter((_id, i) => i !== index);
+   
   };
 
 const  HandleHome =()=>{
@@ -61,3 +61,44 @@ console.log(show);
 }
 
 export default Todo
+
+
+
+
+ /* // Local state for managing quantities
+ const [quantities, setQuantities] = useState(
+  items.map(() => 1) // Initial quantity for all items is 1
+);
+
+const handleDelete = (index) => {
+  const itemToDelete = items[index];
+  dispatch(removeFromCart(itemToDelete));
+  setQuantities((prev) => prev.filter((_, i) => i !== index));
+};
+
+const handlePlus = (index) => {
+  setQuantities((prev) =>
+    prev.map((q, i) => (i === index ? q + 1 : q))
+  );
+};
+
+const handleMinus = (index) => {
+  setQuantities((prev) =>
+    prev.map((q, i) => (i === index && q > 1 ? q - 1 : q))
+  );
+};
+
+// Calculate subtotal, tax, and total
+const calculateSubtotal = () =>
+  items.reduce(
+    (sum, item, index) =>
+      sum +
+      (item.saleInfo?.retailPrice?.amount || 0) * quantities[index],
+    0
+  );  
+
+const taxRate = 0.1; // Example: 10% tax
+const deliveryCharge = 50; // Flat delivery charge
+const subtotal = calculateSubtotal();
+const tax = subtotal * taxRate;
+const total = subtotal + tax + deliveryCharge; */

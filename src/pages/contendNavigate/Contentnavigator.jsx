@@ -9,23 +9,17 @@ function Contentnavigator() {
   return (
     <div className="maintain">
       <div className="icon-edt hover-underline-animation left">
-        {" "}
         <Link to="#offerpage">
-          {" "}
           <img src={img1} alt="@" style={{ width: "30px" }} /> Offers
         </Link>
       </div>
       <div className="icon-edt hover-underline-animation center">
-        {" "}
         <Link to="#category">
-          {" "}
           <BiSolidCategoryAlt style={{ fontSize: "30px" }} /> Categories
         </Link>
       </div>
       <div className="icon-edt hover-underline-animation right">
-        {" "}
         <Link to="#sellpage">
-          {" "}
           <img src={img2} alt="@" style={{ width: "30px" }} /> Sell Your Book
           Now
         </Link>

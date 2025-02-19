@@ -5,8 +5,10 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <div>
       <div className="pg-footer">
@@ -18,33 +20,20 @@ function Footer() {
                   <img style={{ width: "100px" }} src={img10} alt="#" />
                 </div>
               </div>
-              <div className="footer-menu">
-                <h2 className="footer-menu-name"> Get Started</h2>
-                <ul id="menu-get-started" className="footer-menu-list">
-                  <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                    <a href="/">Start</a>
-                  </li>
-                  <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                    <a href="/">Documentation</a>
-                  </li>
-                  <li className="menu-item menu-item-type-post_type menu-item-object-product">
-                    <a href=" /">Installation</a>
-                  </li>
-                </ul>
-              </div>
+            
             </div>
             <div className="footer-content-column">
               <div className="footer-menu">
                 <h2 className="footer-menu-name"> Company</h2>
                 <ul id="menu-company" className="footer-menu-list">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="/       ">Contact</a>
+                    <Link to={'/contact'}>Contact</Link>
                   </li>
                   <li className="menu-item menu-item-type-taxonomy menu-item-object-category">
-                    <a href="/">News</a>
+                    <Link to={'/news'}>News</Link>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="/           ">Careers</a>
+                    <Link to={'/careers'}>Careers</Link>
                   </li>
                 </ul>
               </div>
@@ -52,10 +41,10 @@ function Footer() {
                 <h2 className="footer-menu-name"> Legal</h2>
                 <ul id="menu-legal" className="footer-menu-list">
                   <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-170434">
-                    <a href="/">Privacy Notice</a>
+                    <Link to={'/privacy'}>Privacy policy</Link>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="/">Terms of Use</a>
+                    <Link to={'/terms'}>Terms of Use</Link>
                   </li>
                 </ul>
               </div>
@@ -65,35 +54,26 @@ function Footer() {
                 <h2 className="footer-menu-name"> Quick Links</h2>
                 <ul id="menu-quick-links" className="footer-menu-list">
                   <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                    <a target="_blank" rel="noopener noreferrer" href="/">
+                    <Link /* target="_blank" rel="noopener noreferrer" */ to={'/support'}>
                       Support Center
-                    </a>
+                    </Link>
                   </li>
                   <li className="menu-item menu-item-type-custom menu-item-object-custom">
-                    <a target="_blank" rel="noopener noreferrer" href=" /">
+                    <Link  to={'/service'}>
                       Service Status
-                    </a>
+                    </Link>
                   </li>
                   <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href=" /">Security</a>
+                    <Link to={'/security'}>Security</Link>
                   </li>
-                  <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="/">Blog</a>
-                  </li>
-                  <li className="menu-item menu-item-type-post_type_archive menu-item-object-customer">
-                    <a href="/">Customers</a>
-                  </li>
-                  <li className="menu-item menu-item-type-post_type menu-item-object-page">
-                    <a href="/">Reviews</a>
-                  </li>
+               
                 </ul>
               </div>
             </div>
             <div className="footer-content-column">
               <div className="footer-call-to-action">
                 <h2 className="footer-call-to-action-title"> Let's Chat</h2>
-                <p className="footer-call-to-action-description">
-                  {" "}
+                <p className="footer-call-to-action-description"> 
                   Have a support question?
                 </p>
                 <a
@@ -101,27 +81,23 @@ function Footer() {
                   href="/"
                   target="_self"
                 >
-                  {" "}
-                  Get in Touch{" "}
+                  Get in Touch
                 </a>
               </div>
               <div className="footer-call-to-action">
                 <h2 className="footer-call-to-action-title"> You Call Us</h2>
                 <p className="footer-call-to-action-link-wrapper">
-                  {" "}
-                  <a
+                   <a
                     className="footer-call-to-action-link"
                     href="tel:0124-64XXXX"
                     target="_self"
                   >
-                    {" "}
-                    0124-64XXXX{" "}
+                    0124-64XXXX
                   </a>
                 </p>
               </div>
             </div>
             <div className="footer-social-links">
-              {" "}
               <svg
                 className="footer-social-amoeba-svg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -166,8 +142,7 @@ function Footer() {
             <div className="footer-copyright-wrapper">
               <p className="footer-copyright-text">
                 <a className="footer-copyright-link" href="/" target="_self">
-                  {" "}
-                  ©2020. | Designed By: Pooja Nahelia. | All rights reserved.{" "}
+                  ©{currentYear}. | Designed By: JUBIl P REJI | All rights reserved.
                 </a>
               </p>
             </div>

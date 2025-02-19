@@ -1,103 +1,84 @@
-
-.drop-main {
+.offer-container{
+  margin-left: 10px;
   display: flex;
-  font-size: 5vw;
-  margin: 1.5rem;
+  flex-direction: column;
+  padding: 100px;
+  align-items: center;
   justify-content: center;
-  font-family: "Russo One", sans-serif;
+  font-size: 30px;
+  font-family: serif;
+  color: rgb(169, 151, 116);
+  
 }
-.d {
-  opacity: 0;
-  animation: drop 0.4s linear forwards;
-  color: wheat;
+.swiper-pagination{
+  background-image: url('https://i.imghippo.com/files/Gli3668Gs.png');
+  background-size: cover;
+background-repeat: no-repeat;
+filter: drop-shadow(0 0 0.75rem rgb(221, 197, 152));
 }
-.r {
-  opacity: 0;
-  animation: drop 0.4s linear forwards 0.2s;
-  color: rgb(115,116,70);
+.smile {
+  width: 10%;
+  filter: drop-shadow(0 0 0.75rem rgb(221, 197, 152));
+  animation: rotateLoop 5s linear infinite; /* Add animation */
 }
-.o {
-  opacity: 0;
-  animation: drop 0.4s linear forwards 0.4s;
-  color: wheat;
-}
-.p {
-  opacity: 0;
-  animation: drop 0.4s linear forwards 0.6s;
-  color: #ffffff;
-}
-.s {
-  opacity: 0;
-  animation: drop 0.4s linear forwards 0.8s;
-  color: wheat;
-}
-.g {
-  opacity: 0;
-  animation: drop 0.4s linear forwards 0.8s;
-  color: rgba(0,0,0, 0.4) ;
-}
-@keyframes drop {
+
+/* Define the keyframes for the rotation animation */
+@keyframes rotateLoop {
   0% {
-      transform: translateY(-200px);
-      opacity: 0;
-  }
-  50% {
-      transform: translateY(0px);
-      opacity: 1;
-  }
-  65% {
-      transform: translateY(-17px);
-      opacity: 1;
-  }
-  75% {
-      transform: translateY(-22px);
-      opacity: 1;
+    transform: rotateY(0deg);
   }
   100% {
-      transform: translateY(0px);
-      opacity: 1;
+    transform: rotateY(360deg);
   }
 }
 
-.p-edt{
-  font-size: 3vw;
-  color:wheat;
-  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(0,0,0,0.4));
-  padding: 20px;
+.head-offer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid rgb(135, 122, 98);
+  background-color: rgb(0, 0, 0,0.2);
+ 
 }
-
-.title-edt{
-  background-color:rgba(0,0,0, 0.4);
-  width: 20vmax;
-  height: 10vmax;
-  padding: 30px;
-  margin: 15px;
-  font-size: 1vw;
+.container-offerpage{
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  background: rgb(0,0,0,0.4);
 }
-.title-edt h3{
-  color: wheat;
-  font-family: monospace;
+.headings{
+  color: rgb(216, 212, 202);
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
 }
-.title-edt h5{
-  color: rgb(215, 186, 131);
+.swipe-img{
+  width: 30%;
 }
-
-.title-edt button{
-  padding: 10px;
-  background: linear-gradient(90deg, rgba(115,116,70,0.9192051820728291) 35%, rgba(245,222,179,1) 56%);
-  border: none;
-  color: black;
+.offer-container ul{
+  list-style: none;
+}
+.offer-lists{
+  color: rgb(74, 46, 168);
   font-weight: bold;
-  font-size: 1vw;
-  border-radius: 10px 100px / 120px;
-  cursor: pointer;
-  position:absolute;
 }
-
-.title-edt button:hover{
-  background: linear-gradient(90deg, rgba(173,175,107,0.9192051820728291) 3%, rgba(245,222,179,1) 31%, rgba(245,222,179,1) 70%);
+.offer-container h3{
+  color: rgb(56, 119, 109);
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
 }
-
-.title-edt button:active{
-  background: linear-gradient(90deg, rgba(245,222,179,1) 11%, rgba(173,175,107,0.9192051820728291) 44%, rgba(245,222,179,1) 91%);
+.head-offer{
+  background-image:url('/src/assets/offer-imgs/pop.png') ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+@media(max-width:1600px){
+  .offer-container{
+    font-size: 20px;
+  }
+}
+@media(max-width:1200px){
+  .offer-container{
+    font-size: 15px;
+  }
 }

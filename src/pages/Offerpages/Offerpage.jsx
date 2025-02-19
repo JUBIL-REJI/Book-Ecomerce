@@ -1,80 +1,117 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "./offerpage.css";
-const offerPrice = [
-  {
-    title: "First Purchase",
-    perce: "50%",
-    desc: "Get 50% off your first book purchase! hurry up..",
-  },
-  {
-    title: "Regular",
-    perce: "10%",
-    desc: "Enjoy 10% off on selected titles after your first purchase!",
-  },
-  {
-    title: "EveryDay",
-    perce: "5%",
-    desc: "Get 5% off on any book purchase, always!",
-  },
-];
+import img1 from '../../assets/offer-imgs/fif.png'
+import img2 from '../../assets/offer-imgs/super.png'
+import img3 from '../../assets/offer-imgs/spacial.png'
+import img4 from '../../assets/offer-imgs/rot.png'
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/autoplay";
+
+import {
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
 
 function Offerpage() {
-  return (
-    <section id="offerpage">
-      <div className="wrapper one">
-        <div className="drop-main">
-          <div className="d">P</div>
-          <div className="r">R</div>
-          <div className="o">I</div>
-          <div className="p">C</div>
-          <div className="s">E</div>
-          <div className="g">!!!</div>
-          <div className="d">D</div>
-          <div className="r">R</div>
-          <div className="o">O</div>
-          <div className="p">P</div>
-          <div className="s">!</div>
-        </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontWeight: "bold",
-          padding: "20px",
-        }}
-      >
-        <p className="p-edt">
-          Dive into a world of stories with! <br />
-          amazing discounts just waiting for you!{" "}
-          <hr
-            style={{
-              backgroundColor: "rgba(0,0,0, 0.4)",
-              height: "10px",
-              borderRadius: "10px 100px / 120px",
-              border: "none",
-            }}
-          />
-        </p>
-      </div>
+  const Offer = [
+    {
+      id: 1,
+      title: "50% off hurry up sign up and buy your first dreambook",
+      offer: "Get your first purchase with 50% off",
+      url: img1,
+    },
+    {
+      id: 2,
+      title: "Regular Discounts for everyday",
+      offer: "Get regular discount of 5%",
+      url: img3,
+    },
+    {
+      id: 3,
+      title: "Random selected onces",
+      offer: "Get 10% off random onces EveryDAY",
+      url:img2 ,
+    },
+  ];
 
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
-        {offerPrice.map((item) => {
-          return (
-            <div className="title-edt">
-              <div>
-                <h3>{item.title}</h3>
-                <h5>{item.desc}</h5>
-              </div>
-              <div>
-                <button>Shop Now</button>
-              </div>
-            </div>
-          );
-        })}
+  
+  return (
+    <div className="container-offerpage" id="offerpage">
+      <div className="head-offer">
+        <h1 className="headings">OFFerZone...</h1>
+        <img
+          src={img4}
+          alt="smile"
+          className="smile"
+        />
       </div>
-    </section>
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+       
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 1,
+          depth: 100,
+          modifier: 2.5,
+        }}
+        spaceBetween={200}
+        pagination={{ el: ".swiper-pagination", clickable: true }}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+          clickable: true,
+        }}
+        autoplay={{
+          delay: 2000, // Set the delay for 2 seconds
+          disableOnInteraction: false, // Keeps autoplay running even after user interaction
+        }}
+        breakpoints={{
+          640: { slidesPerView: 1 }, // 1 slide on small screens (≥ 640px)
+          768: { slidesPerView: 2 }, 
+          1160:{slidesPerView:2},// 2 slides on medium screens (≥ 768px)
+          1240: { slidesPerView: 3 },
+        
+        }}
+        speed={4000}
+        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+        className="swiper_container"
+      >
+        {Offer &&
+          Offer.map((offers) => (
+            <SwiperSlide key={offers.id}>
+            <div className="offer-container" 
+            style={{backgroundImage:`url(${offers.url})`,
+            backgroundSize:'cover',
+            backgroundRepeat:'no-repeat',
+            backgroundPosition:'center',
+            height:'50vh'
+            }}>
+              <h3>{offers.title}</h3>
+              </div>  
+            </SwiperSlide>
+          ))}
+
+        <div className="slider-controler">
+          <div className="swiper-button-prev slider-arrow">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div>
+          <div className="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+          <div className="swiper-pagination"></div>
+        </div>
+      </Swiper>
+    </div>
   );
 }
 

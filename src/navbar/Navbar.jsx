@@ -1,54 +1,70 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import "./Navbar.css";
 import img1 from "../assets/booklogo.webp";
-import { FiMenu } from "react-icons/fi";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { TbShoppingCartCancel } from "react-icons/tb";
-import { RxCross2 } from "react-icons/rx";
+import { useNavigate ,Link} from "react-router-dom";
+import AppContext from "../context/UserContext";
+import { FaRegUser } from "react-icons/fa";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const handleClickevent = () => {
-    setMenuOpen(!menuOpen);
+  const { items } = useContext(AppContext);
+
+  const navRef = useRef();
+  const [showIcon, setShowIcon] = useState(false);
+
+  const toggleNavbar = () => {
+    navRef.current.classList.toggle("responsive_nav");
+    setShowIcon((prev) => !prev);
   };
+  const naviGate = useNavigate();
+
   return (
-    <div className="containers">
-      <div className="searchBox">
-        <img style={{ width: "100px" }} src={img1} alt="#" />
-        <h5>
-          Book Ecomerce
-          <br />
-          Explore⭐
-        </h5>
-      </div>
-      <div className={menuOpen ? "opened" : "opens"}>
+    <header>
+      <figure className="" onClick={() => naviGate("/")}>
+        <img
+          src={img1}
+          alt="Book Logo"
+          className="logo"   
+        />
+      </figure>
+
+      <nav ref={navRef}>
         <ul>
-          <li> About us</li>
-          <li> contact us</li>
-          <li>
-            <button className="btn-uniq">
-              <b>Login</b>
-            </button>
+        <Link to={'/About'}> <li key="about-us">About Us</li></Link>
+        <Link to={'/contact'}> <li key="contact-us">Contact Us</li></Link>
+         <li key="login">
+          <button className='btn-uniq' onClick = {() => naviGate('/loginpage')}>
+            <span aria-hidden="true">login</span>
+            <span></span>
+            <span>login</span>
+          </button>
+          </li>
+          <li key="cart" onClick={() => naviGate("/cartpage")}>
+            <TbShoppingCartCancel style={{ fontSize: "25px" }} />
+            <span className="cart-count">{items.length}</span>
           </li>
           <li>
-            <TbShoppingCartCancel />
+            <FaRegUser style={{ fontSize: "20px" }} />
           </li>
         </ul>
-      </div>
 
-      <div className="icon-menu" onClick={handleClickevent}>
-        {menuOpen ? <RxCross2 /> : <FiMenu />}
-      </div>
-
-      <div id="cart-bag">
-        <h4>About us</h4>
-        <h4>Contact</h4>
-        <button className="btn-uniq">
-          <b>Login</b>
+        <button
+          className="nav-btn nav-close-btn"
+          onClick={toggleNavbar}
+          aria-label="Close Navigation"
+        >
+          <FaTimes />
         </button>
-        <TbShoppingCartCancel style={{ fontSize: "30px", cursor: "pointer" }} />
-        <h4>WishList</h4>
-      </div>
-    </div>
+      </nav>
+      <button
+        className="nav-btn"
+        onClick={toggleNavbar}
+        aria-label="Open Navigation"
+      >
+        {showIcon ? <FaTimes /> : <FaBars />}
+      </button>
+    </header>
   );
 }
 
