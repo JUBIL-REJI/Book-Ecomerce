@@ -1,0 +1,19 @@
+
+.figure :hover .span-tag {
+  border-radius: 8px;
+  cursor: pointer;
+  background: 1px linear-gradient(0.25turn, #337767, #426d52, #266355);
+text-decoration: none;
+}
+.img-grid{
+  height: 380px;
+  width: 220px;
+}
+figcaption{
+  text-decoration: none;
+}
+
+.span-tag{
+  background-color: rgba(0,0,0, 0.4);
+  object-fit: fill;
+}
