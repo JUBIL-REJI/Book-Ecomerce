@@ -1,5 +1,5 @@
 react-app
-(book-ecommerce-jubil.netlify.app)
+(https://book-ecommerce-jubil.netlify.app/)
 
 
   
